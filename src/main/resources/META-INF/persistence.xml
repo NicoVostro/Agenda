@@ -1,0 +1,25 @@
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <!-- LA TRASIAZIONE VIENE GESTITA DA HIBERNATE CON RESOURCE LOCAL-->
+    <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL"> <!-- ALTRENATIVA E jta-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <!--Crea le tabelle del database DDL-->
+            <!--create-drop: crea le tabelle e le elimina alla chiusura dell'applicazione -->
+            <!--create: crea le tabelle  -->
+            <!--none: non gestisce operazioni DDL -->
+
+
+
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/agenda"/>
+            <property name="hibernate.max_fetch_depth" value="3"/>
+        </properties>
+    </persistence-unit>
+</persistence>
